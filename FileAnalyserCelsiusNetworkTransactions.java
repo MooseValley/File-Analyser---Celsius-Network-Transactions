@@ -1,5 +1,11 @@
 /*
-................................
+3,253,603 transactions processed / tallied.
+497,211 unique clients.
+492,372 of Clients have addresses redacted (99.0%).
+4,840 of Clients have do NOT have addresses redacted (1.0%).
+
+
+Frequency Counts:
 <= -1,000,000: 810 (0.0%)
 <= -100,000: 12,459 (0.4%)
 <= -10,000: 103,811 (3.3%)
@@ -14,23 +20,26 @@
 3,175,860 transactions processed / tallied.
 
 
+
 Following on from numerous posts on this topic, for example this from u/AmericanScream
-- Celsius public court bankruptcy filings doxxes personal financial information on massive amount of (if not all) their customers. It's now public record. This is obviously good for Bitcoin, right?, https://www.reddit.com/r/Buttcoin/comments/xxlsoz/celsius_public_court_bankruptcy_filings_doxxes/
+* Celsius public court bankruptcy filings doxxes personal financial information on massive amount of (if not all) their customers. It's now public record. This is obviously good for Bitcoin, right?, https://www.reddit.com/r/Buttcoin/comments/xxlsoz/celsius_public_court_bankruptcy_filings_doxxes/
 
 
-Celsius PDF transaction file - preliminary analysis
+Celsius public court bankruptcy filings - PDF transaction file preliminary analysis
+* Pg 47 - 14384 incl
+* 3,175,860 transactions
+* 497,211 unique clients.
+* 492,372 Clients have addresses redacted (99.0%).
+* 4,840 Clients have do NOT have addresses redacted (1.0%).
+* 2,597,224 (82%) of Transactions are some kind of transaction of less than $1,000
+* i.e. they publicly exposed the private details (names and in many cases addresses) for tens of thousands of people for trivial transaction values, in many cases of a few dollars or so.
+* 2,979,010 (94%) of Transactions are some kind of transaction of less than $10,000.
+* 21,999 (0.7%) of Transactions are withdrawal or deposit transactions of more than $100,000.
+* 117,080 (4%) are withdrawal transactions (or some kind of output transaction) for $10K or more.
+* 13,269 (0.4%) are withdrawal transactions (or some kind of output transaction) for $100K or more.
+* 21,999 (0.7%) of Transactions are some kind of transaction of more than $100,000.
 
-3,175,860 transactions
-
-Transactions between -1,000 and 1,000: 2,597,224 (82%)
-i.e. they exposed the private details (names and in many cases addresses) for tens of thousands of people for trivial transaction values, in many cases of a few dollars or so.
-
-Transactions between -10,000 and 10,000: 2,979,010 (94%)
-
-13,269 (0.4%) withdrawl transactions (or some kind of output transaction) for $100K or more.
-117,080 (4%)  withdrawl transactions (or some kind of output transaction) for $10K or more.
-
-I'm guessing these
+withdrawal or deposit (incomming or outgoing)
 
 
 
@@ -80,13 +89,21 @@ ZZ II ADDRESS REDACTED 4/14/2022 - 7/13/2022 Earn - Interest; Earn, Custody or W
 ZZ II ADDRESS REDACTED 4/14/2022 - 7/13/2022 Earn - Interest; Earn, Custody or Withheld - Rewards Incoming Interest and Rewards LTC 0.00759469339 $0.40
 ZZ II ADDRESS REDACTED 4/14/2022 - 7/13/2022 Earn - Interest; Earn, Custody or Withheld - Rewards Incoming Interest and Rewards MCDAI 0.13864137561 $0.14
 :::
-   ADDRESS REDACTED 4/14/2022 - 7/13/2022 Earn - Interest; Earn, Custody or Withheld - Rewards Incoming Interest and Rewards BTC 0.00168851115340199 $50.22
-
+  ADDRESS REDACTED 6/12/2022 Earn Outgoing Withdrawal ETH (0.5061073216) ($741.84)
+  ADDRESS REDACTED 4/14/2022 - 7/13/2022 Earn - Interest; Earn, Custody or Withheld - Rewards Incoming Interest and Rewards BTC 0.0012767927027711 $50.42
+  ADDRESS REDACTED 4/14/2022 - 7/13/2022 Earn - Interest; Earn, Custody or Withheld - Rewards Incoming Interest and Rewards ETH 0.0050874952829851 $11.62
+  ADDRESS REDACTED 4/14/2022 - 7/13/2022 Earn - Interest; Earn, Custody or Withheld - Rewards Incoming Interest and Rewards AVAX 0.072108852535 $2.85
+22-10964-mg Doc 973 Filed 10/05/22 Entered 10/05/22 22:13:10 Main Document
+Pg 14384 of 14532
+
+:::
 */
+import java.util.*;
+import java.io.*;
 
-public class FileAnalyserCelsiusNetworkTransactions
+
+class Moose_Utils
 {
-   public static final String HEADER_LINE = "USERNAME ADDRESS DATE ACCOUNT TYPE Descriptive Purpose COIN COIN QUANTITY COIN USD";
 
    // Example use:
    //   double val = Moose_Utils.strToDouble ("$1,234.56", 0);
@@ -126,6 +143,57 @@ public class FileAnalyserCelsiusNetworkTransactions
    }
 
 
+   // Example use:
+   //    boolean inListAlready = Moose_Utils.isItemAlreadyInArrayList (myArrayList, itemStr, false);
+   public static boolean isItemAlreadyInArrayList (ArrayList<String> myArrayList, String itemStr, boolean caseSensitive)
+   {
+      boolean itemFound = false;
+      String currItem = "";
+
+      for (int k = 0; k < myArrayList.size(); k++)
+      {
+         currItem = myArrayList.get (k);
+
+         if ((caseSensitive == true) && (currItem.compareTo (itemStr) == 0))
+         {
+            itemFound = true;
+         }
+         else if ((caseSensitive == false) && (currItem.compareToIgnoreCase (itemStr) == 0))
+         {
+            itemFound = true;
+         }
+      }
+
+      return itemFound;
+   }
+
+
+   // Example use:
+   //    Moose_Utils.addUniqueItemToArrayList (uniqueNamesArrayList, "Mike", false); // Case insensitive.
+   public static boolean addUniqueItemToArrayList (ArrayList<String> myArrayList, String itemStr, boolean caseSensitive)
+   {
+      boolean itemAdded = false;
+
+      if (isItemAlreadyInArrayList (myArrayList, itemStr, caseSensitive) == false)
+      {
+         myArrayList.add (itemStr);
+
+         itemAdded = true;
+      }
+
+      return itemAdded;
+   }
+}
+
+
+
+public class FileAnalyserCelsiusNetworkTransactions
+{
+   public static final String HEADER_LINE      = "USERNAME ADDRESS DATE ACCOUNT TYPE Descriptive " +
+                                                 "Purpose COIN COIN QUANTITY COIN USD";
+   public static final String ADDRESS_REDACTED = "ADDRESS REDACTED";
+
+
 
    public static void main (String[] agrs)
    {
@@ -133,10 +201,17 @@ public class FileAnalyserCelsiusNetworkTransactions
       boolean quitProcessing  = false;
       long    lineCount       = 0;
       long    transCount      = 0;
+      long    transCount2     = 0;
+      long    addressRedactedCount = 0;
+      ArrayList<String> uniqueClients            = new ArrayList<>();
+      ArrayList<String> addressesRedactedClients = new ArrayList<>();
+      ArrayList<String> addressesNotRedactedClients = new ArrayList<>();
+      String priorClientName = "";
+
 
       NumberFrequencyCount.initialiseCounts ();
 
-      try (Scanner inFile = new Scanner (new FileReader ("Censius.txt") ) )
+      try (Scanner inFile = new Scanner (new FileReader ("Celsius.txt") ) )
       {
          while ((inFile.hasNext() == true) && (quitProcessing == false) )
          {
@@ -144,7 +219,7 @@ public class FileAnalyserCelsiusNetworkTransactions
 
             lineCount++;
 
-            if (lineCount % 100_000 == 0)
+            if (lineCount % 10_000 == 0)
                System.out.print (".");
 
             //if (lineCount > 10_000)
@@ -166,6 +241,8 @@ public class FileAnalyserCelsiusNetworkTransactions
                }
                else
                {
+                  transCount2++;
+
                   int startIndex = lineStr.indexOf ("($");
 
                   if (startIndex < 0)
@@ -177,10 +254,39 @@ public class FileAnalyserCelsiusNetworkTransactions
 
                      String numStr = lineStr.substring (startIndex, lineStr.length() );
 
-                     double val = strToDouble (numStr, 0);
+                     double val = Moose_Utils.strToDouble (numStr, 0);
 
                      NumberFrequencyCount.incrementCounts (val);
                   }
+
+
+                  String clientName = "";
+
+                  if (lineStr.contains (ADDRESS_REDACTED) == true)
+                  {
+                     startIndex = lineStr.indexOf (ADDRESS_REDACTED);
+
+                     if (startIndex > 0)
+                        clientName = lineStr.substring (0, startIndex);
+
+                     if (priorClientName.equals (clientName) == false)
+                        Moose_Utils.addUniqueItemToArrayList (addressesRedactedClients, clientName, false); // Case insensitive.
+                  }
+                  else
+                  {
+                     startIndex = lineStr.indexOf (",");
+
+                     if (startIndex > 0)
+                        clientName = lineStr.substring (0, startIndex);
+
+                     if (priorClientName.equals (clientName) == false)
+                        Moose_Utils.addUniqueItemToArrayList (addressesNotRedactedClients, clientName, false); // Case insensitive.
+                  }
+
+                  if (priorClientName.equals (clientName) == false)
+                     Moose_Utils.addUniqueItemToArrayList (uniqueClients, clientName, false); // Case insensitive.
+
+                  priorClientName = clientName;
                }
             }
             else if (lineStr.equals (HEADER_LINE) == true)
@@ -196,6 +302,34 @@ public class FileAnalyserCelsiusNetworkTransactions
 
       System.out.println ();
 
-      NumberFrequencyCount.displayFrequencyCounts ();
+      double redactedPct    = 100.0 * addressesRedactedClients.size()    / uniqueClients.size();
+      double nonRedactedPct = 100.0 * addressesNotRedactedClients.size() / uniqueClients.size();
+
+
+      String outputStr = "\n" +
+                         String.format ("%,d", transCount2) + " transactions processed / tallied." + "\n" +
+                         String.format ("%,d", uniqueClients.size() ) + " unique clients." + "\n" +
+                         String.format ("%,d", addressesRedactedClients.size()) + " of Clients have addresses redacted (" +
+                         String.format ("%.1f", redactedPct) + "%)."  + "\n" +
+                         String.format ("%,d", addressesNotRedactedClients.size()) + " of Clients have do NOT have addresses redacted (" +
+                         String.format ("%.1f", nonRedactedPct) + "%)." + "\n" + "\n";
+
+      System.out.println (outputStr);
+
+      String frequencyResultsStr = NumberFrequencyCount.getFrequencyCounts ();
+
+
+      try (Formatter outputFile  = new Formatter ("Celsius_analysis.txt") )
+      {
+         outputFile.format ("%s", outputStr);
+         outputFile.format ("%s", frequencyResultsStr);
+
+         outputFile.close();
+      }
+      catch (Exception err)
+      {
+         err.printStackTrace();
+      }
+      System.out.println ("All output written to file: 'Celsius_analysis.txt'.");
    }
 }

@@ -36,30 +36,34 @@ public class NumberFrequencyCount
       }
    }
 
-   public static void displayFrequencyCounts ()
+   public static String getFrequencyCounts ()
    {
+      StringBuffer sb = new StringBuffer ();
+
+      sb.append ("\n" + "Frequency Counts:" + "\n");
+
       for (int k = 0; k < frequencyCounts.length; k++)
       {
          double proportion = 100.0 * frequencyCounts [k] / transCount;
 
          if (FREQUENCY_LIMITS [k] < 1_000_000_000_000L)
          {
-
-            System.out.println ("<= " + String.format ("%,.0f", FREQUENCY_LIMITS  [k]) +
-                                ": "  + String.format ("%,d",   frequencyCounts [k]) +
-                                " ("  + String.format ("%,.1f", proportion)          + "%)" );
+            sb.append ("<= " + String.format ("%,.0f", FREQUENCY_LIMITS [k]) );
          }
          else
          {
-            System.out.println ("<= " + FREQUENCY_LIMITS  [k] + //String.format ("%,.0f", FREQUENCY_LIMITS  [k]) +
-                                ": "  + String.format ("%,d",   frequencyCounts [k]) +
-                                " ("  + String.format ("%,.1f", proportion)          + "%)" );
+            sb.append ("<= " + FREQUENCY_LIMITS  [k]);
          }
+
+         sb.append (": "  + String.format ("%,d",   frequencyCounts  [k]) +
+                    " ("  + String.format ("%,.1f", proportion)           + "%)" + "\n");
       }
 
-      System.out.println ();
-      System.out.println (String.format ("%,d", transCount) + " transactions processed / tallied.");
-      System.out.println ();
+      sb.append ("\n" + String.format ("%,d", transCount) + " transactions processed / tallied." + "\n");
+
+      System.out.println (sb.toString() );
+
+      return sb.toString();
    }
 
 }
