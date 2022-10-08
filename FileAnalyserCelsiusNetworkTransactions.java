@@ -32,9 +32,9 @@ Celsius public court bankruptcy filings - PDF transaction file preliminary analy
 * 492,372 Clients have addresses redacted (99.0%).
 * 4,840 Clients have do NOT have addresses redacted (1.0%).
 * 2,597,224 (82%) of Transactions are some kind of transaction of less than $1,000
-* i.e. they publicly exposed the private details (names and in many cases addresses) for tens of thousands of people for trivial transaction values, in many cases of a few dollars or so.
+* i.e. they publicly exposed the private details (names and in some cases addresses) for tens of thousands of people for trivial transaction values, in many cases of a few dollars or so.
 * 2,979,010 (94%) of Transactions are some kind of transaction of less than $10,000.
-* 21,999 (0.7%) of Transactions are withdrawal or deposit transactions of more than $100,000.
+* 21,999 (0.7%) of Transactions are withdrawal or deposit  (incomming or outgoing) transactions of more than $100,000.
 * 117,080 (4%) are withdrawal transactions (or some kind of output transaction) for $10K or more.
 * 13,269 (0.4%) are withdrawal transactions (or some kind of output transaction) for $100K or more.
 * 21,999 (0.7%) of Transactions are some kind of transaction of more than $100,000.
