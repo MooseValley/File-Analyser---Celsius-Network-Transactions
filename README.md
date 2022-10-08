@@ -17,12 +17,11 @@ Celsius public court bankruptcy filings - PDF transaction file preliminary analy
 * 13,269 (0.4%) are withdrawal transactions (or some kind of output transaction) for $100K or more.
 * 21,999 (0.7%) of Transactions are some kind of transaction (incoming or outgoing) of more than $100,000.
 
-Following on from numerous posts on this topic, for example this from u/AmericanScream
-* Celsius public court bankruptcy filings doxxes personal financial information on massive amount of (if not all) their customers. It's now public record. This is obviously good for Bitcoin, right?, https://www.reddit.com/r/Buttcoin/comments/xxlsoz/celsius_public_court_bankruptcy_filings_doxxes/
-
 The above information has been posted to:
 * Celsius public court bankruptcy filings - PDF transaction file preliminary analysis, 8-Oct-2022, https://www.reddit.com/r/Buttcoin/comments/xyvaqa/celsius_public_court_bankruptcy_filings_pdf/
 
+Background information about these Celsius public court bankruptcy filings:
+* Celsius public court bankruptcy filings doxxes personal financial information on massive amount of (if not all) their customers. It's now public record. This is obviously good for Bitcoin, right?, https://www.reddit.com/r/Buttcoin/comments/xxlsoz/celsius_public_court_bankruptcy_filings_doxxes/
 
 ## Author:
 * Moose OMalley
