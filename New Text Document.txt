@@ -1,0 +1,89 @@
+JACOB BENJAMIN FITE ADDRESS REDACTED 4/15/2022 Earn Outgoing Withdrawal USDC (1,368,107.956669) ($1,368,107.96)
+JACOB BENJAMIN FITE ADDRESS REDACTED 4/18/2022 Earn Outgoing Internal Account Transfer USDC (5,245.167821024) ($5,245.17)
+JACOB BENJAMIN FITE ADDRESS REDACTED 4/18/2022 Custody Incoming Internal Account Transfer USDC 5,245.167821024 $5,245.17
+JACOB BENJAMIN FITE ADDRESS REDACTED 4/18/2022 Custody Outgoing Withdrawal USDC (5,245.167821) ($5,245.17)
+JACOB BENJAMIN FITE ADDRESS REDACTED 4/25/2022 Earn Outgoing Internal Account Transfer USDC (56.363561702) ($56.36)
+JACOB BENJAMIN FITE ADDRESS REDACTED 4/25/2022 Custody Incoming Internal Account Transfer USDC 56.363561702 $56.36
+JACOB BENJAMIN FITE ADDRESS REDACTED 4/25/2022 Custody Outgoing Withdrawal USDC (56.363561) ($56.36)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/1/2022 Earn Outgoing Internal Account Transfer BTC (0.596) ($22,705.51)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/1/2022 Custody Incoming Internal Account Transfer BTC 0.596 $22,705.51
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/1/2022 Custody Outgoing Withdrawal BTC (0.596) ($22,588.92)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/10/2022 Earn Outgoing Internal Account Transfer CEL (1.118577455) ($1.77)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/10/2022 Custody Incoming Internal Account Transfer CEL 1.118577455 $1.77
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/10/2022 Earn Outgoing Internal Account Transfer USDC (0.03767345591) ($0.04)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/10/2022 Custody Incoming Internal Account Transfer USDC 0.03767345591 $0.04
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/10/2022 Earn Outgoing Internal Account Transfer BTC (0.4) ($12,466.96)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/10/2022 Custody Incoming Internal Account Transfer BTC 0.4 $12,466.96
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/11/2022 Custody Outgoing Withdrawal BTC (0.4) ($12,636.80)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/16/2022 Earn Outgoing Internal Account Transfer CEL (0.0007660822947) $0.00
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/16/2022 Custody Incoming Internal Account Transfer CEL 0.0007660822947 $0.00
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/16/2022 Earn Outgoing Internal Account Transfer USDC (0.00003231378104) $0.00
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/16/2022 Custody Incoming Internal Account Transfer USDC 0.00003231378104 $0.00
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/20/2022 Earn Outgoing Internal Account Transfer BTC (0.4) ($11,583.44)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/20/2022 Custody Incoming Internal Account Transfer BTC 0.4 $11,583.44
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/22/2022 Custody Outgoing Withdrawal BTC (0.4) ($12,153.64)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/24/2022 Earn Outgoing Internal Account Transfer BTC (0.4) ($11,740.40)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/24/2022 Custody Incoming Internal Account Transfer BTC 0.4 $11,740.40
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/26/2022 Earn Outgoing Internal Account Transfer BTC (0.4) ($11,830.58)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/26/2022 Custody Incoming Internal Account Transfer BTC 0.4 $11,830.58
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/30/2022 Custody Outgoing Withdrawal BTC (0.4) ($12,260.49)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/30/2022 Earn Outgoing Internal Account Transfer BTC (0.00001303) ($0.40)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/30/2022 Custody Incoming Internal Account Transfer BTC 0.00001303 $0.40
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/30/2022 Earn Outgoing Internal Account Transfer BTC (0.4) ($12,279.28)
+JACOB BENJAMIN FITE ADDRESS REDACTED 5/30/2022 Custody Incoming Internal Account Transfer BTC 0.4 $12,279.28
+JACOB BENJAMIN FITE ADDRESS REDACTED 4/14/2022 - 7/13/2022 Earn - Interest; Earn, Custody or Withheld - Rewards Incoming Interest and Rewards BTC 5.80446361219999 $180,077.38
+JACOB BENJAMIN FITE ADDRESS REDACTED 4/14/2022 - 7/13/2022 Earn - Interest; Earn, Custody or Withheld - Rewards Incoming Interest and Rewards CEL 43.8302015826649 $100.01
+JACOB BENJAMIN FITE ADDRESS REDACTED 4/14/2022 - 7/13/2022 Earn - Interest; Earn, Custody or Withheld - Rewards Incoming Interest and Rewards USDC 5,301.56908794142 $5,301.57
+
+Interesting ... but their math might be a little off ?  Someone should check their code ?
+
+Example: for Jacob Benjamin Fite, they claim he lost $40,468,920.35.
+
+Here are all of his transactions (everything for his name in the PDF):
+
+* 4/15/2022 Earn Outgoing Withdrawal USDC (1,368,107.956669)	($1,368,107.96)
+* 4/18/2022 Earn Outgoing Internal Account Transfer USDC (5,245.167821024)	($5,245.17)
+* 4/18/2022 Custody Incoming Internal Account Transfer USDC 5,245.167821024	$5,245.17
+* 4/18/2022 Custody Outgoing Withdrawal USDC (5,245.167821)	($5,245.17)
+* 4/25/2022 Earn Outgoing Internal Account Transfer USDC (56.363561702)	($56.36)
+* 4/25/2022 Custody Incoming Internal Account Transfer USDC 56.363561702	$56.36
+* 4/25/2022 Custody Outgoing Withdrawal USDC (56.363561)	($56.36)
+* 5/1/2022 Earn Outgoing Internal Account Transfer BTC (0.596)	($22,705.51)
+* 5/1/2022 Custody Incoming Internal Account Transfer BTC 0.596	$22,705.51
+* 5/1/2022 Custody Outgoing Withdrawal BTC (0.596)	($22,588.92)
+* 5/10/2022 Earn Outgoing Internal Account Transfer CEL (1.118577455)	($1.77)
+* 5/10/2022 Custody Incoming Internal Account Transfer CEL 1.118577455	$1.77
+* 5/10/2022 Earn Outgoing Internal Account Transfer USDC (0.03767345591)	($0.04)
+* 5/10/2022 Custody Incoming Internal Account Transfer USDC 0.03767345591	$0.04
+* 5/10/2022 Earn Outgoing Internal Account Transfer BTC (0.4)	($12,466.96)
+* 5/10/2022 Custody Incoming Internal Account Transfer BTC 0.4	$12,466.96
+* 5/11/2022 Custody Outgoing Withdrawal BTC (0.4)	($12,636.80)
+* 5/16/2022 Earn Outgoing Internal Account Transfer CEL (0.0007660822947)	$0.00
+* 5/16/2022 Custody Incoming Internal Account Transfer CEL 0.0007660822947	$0.00
+* 5/16/2022 Earn Outgoing Internal Account Transfer USDC (0.00003231378104)	$0.00
+* 5/16/2022 Custody Incoming Internal Account Transfer USDC 0.00003231378104	$0.00
+* 5/20/2022 Earn Outgoing Internal Account Transfer BTC (0.4)	($11,583.44)
+* 5/20/2022 Custody Incoming Internal Account Transfer BTC 0.4	$11,583.44
+* 5/22/2022 Custody Outgoing Withdrawal BTC (0.4)	($12,153.64)
+* 5/24/2022 Earn Outgoing Internal Account Transfer BTC (0.4)	($11,740.40)
+* 5/24/2022 Custody Incoming Internal Account Transfer BTC 0.4	$11,740.40
+* 5/26/2022 Earn Outgoing Internal Account Transfer BTC (0.4)	($11,830.58)
+* 5/26/2022 Custody Incoming Internal Account Transfer BTC 0.4	$11,830.58
+* 5/30/2022 Custody Outgoing Withdrawal BTC (0.4)	($12,260.49)
+* 5/30/2022 Earn Outgoing Internal Account Transfer BTC (0.00001303)	($0.40)
+* 5/30/2022 Custody Incoming Internal Account Transfer BTC 0.00001303	$0.40
+* 5/30/2022 Earn Outgoing Internal Account Transfer BTC (0.4)	($12,279.28)
+* 5/30/2022 Custody Incoming Internal Account Transfer BTC, 0.4	$12,279.28
+* 4/14/2022 - 7/13/2022 Earn - Interest; Earn, Custody or Withheld - Rewards Incoming Interest and Rewards BTC 5.80446361219999	$180,077.38
+* 4/14/2022 - 7/13/2022 Earn - Interest; Earn, Custody or Withheld - Rewards Incoming Interest and Rewards CEL 43.8302015826649	$100.01
+* 4/14/2022 - 7/13/2022 Earn - Interest; Earn, Custody or Withheld - Rewards Incoming Interest and Rewards USDC 5,301.56908794142	$5,301.57
+
+
+Most of these are internal transfers.
+
+Example: for Jacob Benjamin Fite, they list him as losing: $40,468,920.35.
+But if you add up all of his transactions in the PDF, you get:  -$1,247,570.38
+
+i.e. he managed to get $1,247,570.38 of his money OUT of Celsius before the end ?!?!
+
+

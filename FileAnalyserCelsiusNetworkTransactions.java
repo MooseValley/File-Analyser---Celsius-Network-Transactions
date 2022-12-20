@@ -1,4 +1,8 @@
 /*
+Also see: https://celsiusnetworth.com/
+which is using a different file / data source.
+
+
 3,253,603 transactions processed / tallied.
 497,211 unique clients.
 492,372 of Clients have addresses redacted (99.0%).
@@ -114,10 +118,12 @@ class Moose_Utils
       if ((sourceStr != null) && (sourceStr.length() > 0) )
       {
          int multiplier = 1;
+         // -1234.56   = a negative number !!!
          // (1234.56)  = a negative number !!!
          // (-1234.56) = a negative number !!!
          // -(1234.56) = a negative number !!!
-         if (sourceStr.contains ("(") == true)
+         if ((sourceStr.contains ("(") == true) ||
+             (sourceStr.contains ("-") == true) )
             multiplier = -1;
 
          // Remove common symbols that cause problems with the conversion:
@@ -139,7 +145,7 @@ class Moose_Utils
          }
       }
 
-      return resultVal;  // Return errorReturnVal if error or not found.
+      return resultVal;  // Return errorReturnVal on error.
    }
 
 
@@ -209,7 +215,7 @@ public class FileAnalyserCelsiusNetworkTransactions
       String priorClientName = "";
 
 
-      NumberFrequencyCount.initialiseCounts ();
+      NameNumberFrequencyCount.initialise ();
 
       try (Scanner inFile = new Scanner (new FileReader ("Celsius.txt") ) )
       {
@@ -222,7 +228,7 @@ public class FileAnalyserCelsiusNetworkTransactions
             if (lineCount % 10_000 == 0)
                System.out.print (".");
 
-            //if (lineCount > 10_000)
+            //if (lineCount > 10_000) // For testing.
             //   quitProcessing = true;
 
             if (startExtraction = true)
@@ -242,22 +248,7 @@ public class FileAnalyserCelsiusNetworkTransactions
                else
                {
                   transCount2++;
-
-                  int startIndex = lineStr.indexOf ("($");
-
-                  if (startIndex < 0)
-                     startIndex = lineStr.indexOf ("$");
-
-                  if (startIndex > 0)
-                  {
-                     transCount++;
-
-                     String numStr = lineStr.substring (startIndex, lineStr.length() );
-
-                     double val = Moose_Utils.strToDouble (numStr, 0);
-
-                     NumberFrequencyCount.incrementCounts (val);
-                  }
+                  int startIndex = 0;
 
 
                   String clientName = "";
@@ -286,6 +277,26 @@ public class FileAnalyserCelsiusNetworkTransactions
                   if (priorClientName.equals (clientName) == false)
                      Moose_Utils.addUniqueItemToArrayList (uniqueClients, clientName, false); // Case insensitive.
 
+
+
+
+                  startIndex = lineStr.indexOf ("($");
+
+                  if (startIndex < 0)
+                     startIndex = lineStr.indexOf ("$");
+
+                  if (startIndex > 0)
+                  {
+                     transCount++;
+
+                     String numStr = lineStr.substring (startIndex, lineStr.length() );
+
+                     double val = Moose_Utils.strToDouble (numStr, 0);
+
+                     NameNumberFrequencyCount.incrementCounts (clientName, val);
+                  }
+
+
                   priorClientName = clientName;
                }
             }
@@ -307,16 +318,16 @@ public class FileAnalyserCelsiusNetworkTransactions
 
 
       String outputStr = "\n" +
-                         String.format ("%,d", transCount2) + " transactions processed / tallied." + "\n" +
-                         String.format ("%,d", uniqueClients.size() ) + " unique clients." + "\n" +
-                         String.format ("%,d", addressesRedactedClients.size()) + " of Clients have addresses redacted (" +
-                         String.format ("%.1f", redactedPct) + "%)."  + "\n" +
-                         String.format ("%,d", addressesNotRedactedClients.size()) + " of Clients have do NOT have addresses redacted (" +
-                         String.format ("%.1f", nonRedactedPct) + "%)." + "\n" + "\n";
+             String.format ("%,d",  transCount2) + " transactions processed / tallied." + "\n" +
+             String.format ("%,d",  uniqueClients.size() ) + " unique clients." + "\n" +
+             String.format ("%,d",  addressesRedactedClients.size() ) + " of Clients have addresses redacted (" +
+             String.format ("%.1f", redactedPct) + "%)."  + "\n" +
+             String.format ("%,d",  addressesNotRedactedClients.size() ) + " of Clients have do NOT have addresses redacted (" +
+             String.format ("%.1f", nonRedactedPct) + "%)." + "\n" + "\n";
 
       System.out.println (outputStr);
 
-      String frequencyResultsStr = NumberFrequencyCount.getFrequencyCounts ();
+      String frequencyResultsStr = NameNumberFrequencyCount.getFrequencyCounts ();
 
 
       try (Formatter outputFile  = new Formatter ("Celsius_analysis.txt") )
@@ -330,6 +341,7 @@ public class FileAnalyserCelsiusNetworkTransactions
       {
          err.printStackTrace();
       }
+
       System.out.println ("All output written to file: 'Celsius_analysis.txt'.");
    }
 }

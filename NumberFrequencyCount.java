@@ -1,10 +1,10 @@
 /*
-NumberFrequencyCount.initialiseCounts ();
+NumberFrequencyCount.initialise ();
 
 NumberFrequencyCount.incrementCounts (123);
 NumberFrequencyCount.incrementCounts (67891);
 :::
-NumberFrequencyCount.displayFrequencyCounts ();
+System.out.println (NumberFrequencyCount.getFrequencyCounts () );
 
 */
 public class NumberFrequencyCount
@@ -13,7 +13,7 @@ public class NumberFrequencyCount
    public static long[]   frequencyCounts  = new long [FREQUENCY_LIMITS.length];
    public static long     transCount;
 
-   public static void initialiseCounts ()
+   public static void initialise ()
    {
       for (int k = 0; k < frequencyCounts.length; k++)
       {
